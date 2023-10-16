@@ -2131,7 +2131,7 @@ var SVGtoPDF = function(doc, svg, x, y, options) {
                 docBeginText(this._font.font, this._font.size);
                 docSetTextMode(!!fill, !!stroke);
                 for (let j = 0, pos = childElem._pos; j < pos.length; j++) {
-                  if (!pos[j].hidden && isNotEqual(pos[j].width, 0)) {
+                  if (!pos[j].hidden) {
                     let cos = Math.cos(pos[j].rotate), sin = Math.sin(pos[j].rotate), skew = (this._font.fauxItalic ? -0.25 : 0);
                     docSetTextMatrix(cos * pos[j].scale, sin * pos[j].scale, cos * skew - sin, sin * skew + cos, pos[j].x, pos[j].y);
                     docWriteGlyph(pos[j].glyph);
